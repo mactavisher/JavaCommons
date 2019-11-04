@@ -1,9 +1,9 @@
 package cn.com.lynx.commonutils;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * validation utils
@@ -13,35 +13,31 @@ import java.util.regex.Pattern;
  */
 public class ValidationUtils {
 
-    //ensure non-instantiation abilities
-    private ValidationUtils(){
-    }
     /**
-     * 特殊字符
-     * special character sequence regx
+     * 特殊字符 special character sequence regx
      */
     private static final String SPECIAL_CHAR_SEQUENCE =
         "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
-
     /**
-     * 中文字符
-     * chines character sequence regx
+     * 中文字符 chines character sequence regx
      */
     private static final String CHINESE_CHAR_SEQUENCE =
         "[\u4E00-\u9FA5|\\！|\\，|\\。|\\（|\\）|\\《|\\》|\\“|\\”|\\？|\\：|\\；|\\【|\\】]";
-
     /**
-     * 数字
-     * number character sequence regx
+     * 数字 number character sequence regx
      */
     private static final String NUMBER_SEQUENCE = "[0-9]*";
+
+    // ensure non-instantiation abilities
+    private ValidationUtils() {}
 
     /**
      * validate is a string contains invalid special characters
      * <p>
      * 后端校验是否位特殊字符，将其过滤掉
      *
-     * @param stringToValidate String
+     * @param stringToValidate
+     *            String
      * @return boolean
      */
     public static boolean isContainsSpecialChar(String stringToValidate) {
@@ -54,11 +50,10 @@ public class ValidationUtils {
     /**
      * validate if a string contains Chinese character, Chinese Characters is not allowed in ups
      * <p>
-     * need to validate that
-     * 验证是否包含中文字符，
-     * 对于ups,目前来说,对中文的支持不太友好，需要过滤中文
+     * need to validate that 验证是否包含中文字符， 对于ups,目前来说,对中文的支持不太友好，需要过滤中文
      *
-     * @param stringToValidate String
+     * @param stringToValidate
+     *            String
      * @return boolean
      */
     public static boolean isContainChinese(String stringToValidate) {

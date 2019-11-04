@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
  * @Date @Date 2019/8/22 10:20
  */
 public class SortUtils {
+
     // 隐藏构造函数，外部无法实例化
-    private SortUtils() {
-    }
+    private SortUtils() {}
 
     /**
      * 冒泡排序 针对自定义排序方法， 自定义实现了Comparator的比较器对集合元素经行排序
@@ -204,25 +204,30 @@ public class SortUtils {
                 this.age = age;
             }
 
-            @Override public String toString() {
+            @Override
+            public String toString() {
                 return "Student{" + "age=" + age + '}';
             }
 
-            @Override public int compareTo(Student o) {
+            @Override
+            public int compareTo(Student o) {
                 return this.getAge() - o.getAge();
             }
 
-            @Override public boolean equals(Object obj) {
+            @Override
+            public boolean equals(Object obj) {
                 return super.equals(obj);
             }
 
-            @Override public int hashCode() {
+            @Override
+            public int hashCode() {
                 return super.hashCode();
             }
         }
 
         class StudentComparator implements Comparator<Student> {
-            @Override public int compare(Student o1, Student o2) {
+            @Override
+            public int compare(Student o1, Student o2) {
                 return o1.getAge() - o2.getAge();
             }
         }
