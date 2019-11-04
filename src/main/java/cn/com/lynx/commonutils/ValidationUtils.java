@@ -13,28 +13,30 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class ValidationUtils {
 
+    // ensure non-instantiation abilities
+    private ValidationUtils() {}
+
     /**
      * 特殊字符 special character sequence regx
      */
     private static final String SPECIAL_CHAR_SEQUENCE =
         "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
+
     /**
      * 中文字符 chines character sequence regx
      */
     private static final String CHINESE_CHAR_SEQUENCE =
         "[\u4E00-\u9FA5|\\！|\\，|\\。|\\（|\\）|\\《|\\》|\\“|\\”|\\？|\\：|\\；|\\【|\\】]";
+
     /**
      * 数字 number character sequence regx
      */
     private static final String NUMBER_SEQUENCE = "[0-9]*";
 
-    // ensure non-instantiation abilities
-    private ValidationUtils() {}
-
     /**
-     * validate is a string contains invalid special characters
+     * validate is a string contains special characters
      * <p>
-     * 后端校验是否位特殊字符，将其过滤掉
+     * 校验是否位特殊字符，将其过滤掉
      *
      * @param stringToValidate
      *            String
@@ -48,9 +50,8 @@ public class ValidationUtils {
     }
 
     /**
-     * validate if a string contains Chinese character, Chinese Characters is not allowed in ups
+     * validate if a string contains Chinese character
      * <p>
-     * need to validate that 验证是否包含中文字符， 对于ups,目前来说,对中文的支持不太友好，需要过滤中文
      *
      * @param stringToValidate
      *            String
