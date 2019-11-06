@@ -17,6 +17,7 @@ import java.util.List;
  * @date : 2019-11-04 16:02
  */
 public class DateUtils {
+
     public static final String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public static final String DATE_PATTERN = "yyyy-MM-dd";
     public static final String TIME_PATTERN = "HH:mm:ss";
@@ -57,7 +58,7 @@ public class DateUtils {
      * @param beginDateString
      * @param endDateString
      * @param datePattern
-     * @return
+     * @return date offset
      * @throws ParseException
      */
     public static int calculateDateOffSet(String beginDateString, String endDateString, String datePattern)
@@ -72,7 +73,7 @@ public class DateUtils {
      *
      * @param beginDate
      * @param endDate
-     * @return
+     * @return date offset
      */
     public static int calculateDateOffSet(Date beginDate, Date endDate) {
         long offSet = (endDate.getTime() - beginDate.getTime()) / (60 * 60 * 24 * 1000);
@@ -85,7 +86,7 @@ public class DateUtils {
      * @param pattern
      * @return
      */
-    public static String getToday(String pattern) {
+    public static String getTodayLocal(String pattern) {
         LocalDateTime nowDateTime = LocalDateTime.now(SHANGHAI_ZONE);
         return nowDateTime.format(DateTimeFormatter.ofPattern(pattern));
     }
@@ -312,11 +313,5 @@ public class DateUtils {
      */
     public static String parseLocalFormat(LocalDateTime localDateTime, String pattern) {
         return localDateTime.format(DateTimeFormatter.ofPattern(pattern));
-    }
-
-    public static void main(String[] args) {
-        System.out.println(getToday(DATE_TIME_PATTERN));
-        System.out.println(getToday("HH:mm"));
-        System.out.println(parseDateToLocalDateTime(getTodayDate()));
     }
 }
