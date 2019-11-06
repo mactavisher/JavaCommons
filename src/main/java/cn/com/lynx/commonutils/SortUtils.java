@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  */
 public class SortUtils {
 
-    // 隐藏构造函数，外部无法实例化
+    // ensure non-instantiation abilities
     private SortUtils() {}
 
     /**

@@ -29,6 +29,9 @@ public class DateUtils {
     public static final String DATE_PATTERN_MD_CN = "MM月dd日";
     public static final ZoneId SHANGHAI_ZONE = ZoneId.of("Asia/Shanghai"); // 上海时区
 
+    // ensure non-instantiation abilities
+    private DateUtils(){}
+
     /**
      * 日期转化为指定日期格式类型
      *
