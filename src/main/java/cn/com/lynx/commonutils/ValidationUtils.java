@@ -13,25 +13,23 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class ValidationUtils {
 
-    // ensure non-instantiation abilities
-    private ValidationUtils() {}
-
     /**
      * 特殊字符 special character sequence regx
      */
     private static final String SPECIAL_CHAR_SEQUENCE =
         "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
-
     /**
      * 中文字符 chines character sequence regx
      */
     private static final String CHINESE_CHAR_SEQUENCE =
         "[\u4E00-\u9FA5|\\！|\\，|\\。|\\（|\\）|\\《|\\》|\\“|\\”|\\？|\\：|\\；|\\【|\\】]";
-
     /**
      * 数字 number character sequence regx
      */
     private static final String NUMBER_SEQUENCE = "[0-9]*";
+
+    // ensure non-instantiation abilities
+    private ValidationUtils() {}
 
     /**
      * validate is a string contains special characters
