@@ -3,60 +3,63 @@ package cn.com.lynx.commonutils;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
- * @des: 常用的排序算法工具类
- * @Author: lynx
- * @Date @Date 2019/8/22 10:20
+ * 常用的排序算法工具类
+ *
+ * @author lynx
+ * @since 2019/8/22 10:20
  */
 public class SortUtils {
 
-    // ensure non-instantiation abilities
-    private SortUtils() {}
+    // 隐藏构造函数，外部无法实例化
+    private SortUtils() {
+    }
 
     /**
      * 冒泡排序 针对自定义排序方法， 自定义实现了Comparator的比较器对集合元素经行排序
      *
-     * @param list
-     * @param comparator
-     * @param <E>
-     * @return 排序号的集合
+     * @param list       待排序的集合
+     * @param comparator 比较器
      */
+    @SuppressWarnings("unused")
     public static <E> void bubbleSort(List<E> list, Comparator<? super E> comparator) {
-        if (list != null && !list.isEmpty()) {
-            E temp;
-            final int size = list.size();
-            for (int i = 0; i < size; i++) {
-                for (int j = 0; j < size - i; j++) {
-                    if (comparator.compare(list.get(j), list.get(j + 1)) > 0) {
-                        temp = list.get(j);
-                        list.set(j, list.get(j + 1));
-                        list.set(j + 1, temp);
-                    }
+        if (null == list || list.isEmpty()) {
+            return;
+        }
+        E temp;
+        final int size = list.size();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - 1 - i; j++) {
+                if (comparator.compare(list.get(j), list.get(j + 1)) > 0) {
+                    temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
                 }
             }
         }
     }
 
     /**
-     * 冒泡排序 针对自定义排序方法， 针对实现了Comparable的接口的实体，对元素集合进行排序
+     * 冒泡排序 针对自定义排序方法， 自定义实现了Comparator的比较器对集合元素经行排序
      *
-     * @param list
-     * @param <E>
-     * @return
+     * @param list 待排序的集合
      */
+    @SuppressWarnings("unused")
     public static <E extends Comparable<? super E>> void bubbleSort(List<E> list) {
-        if (list != null && !list.isEmpty()) {
-            E temp;
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                for (int j = 0; j < size - i; j++) {
-                    if (list.get(j).compareTo(list.get(j + 1)) > 0) {
-                        temp = list.get(j);
-                        list.set(j, list.get(j + 1));
-                        list.set(j + 1, temp);
-                    }
+        if (null == list || list.isEmpty()) {
+            return;
+        }
+        E temp;
+        final int size = list.size();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - 1 - i; j++) {
+                if (list.get(j).compareTo(list.get(j + 1)) > 0) {
+                    temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
                 }
             }
         }
@@ -65,78 +68,79 @@ public class SortUtils {
     /**
      * 选择排序 针对实现了Comparable的接口的实体进行排序
      *
-     * @param list
-     * @param <E>
-     * @return
+     * @param list 待排序的集合
      */
+    @SuppressWarnings("unused")
     public static <E extends Comparable<? super E>> void selectSort(List<E> list) {
-        if (list != null && !list.isEmpty()) {
-            E temp;
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                // 记录每一次循环最小值的位置
-                int pos = i;
-                for (int j = i + 1; j < size; j++) {
-                    if (list.get(pos).compareTo(list.get(j)) > 0) {
-                        pos = j;
-                    }
+        if (null == list || list.isEmpty()) {
+            return;
+        }
+        E temp;
+        final int size = list.size();
+        for (int i = 0; i < size; i++) {
+            // 记录每一次循环最小值的位置
+            int pos = i;
+            for (int j = i + 1; j < size; j++) {
+                if (list.get(pos).compareTo(list.get(j)) > 0) {
+                    pos = j;
                 }
-                // 最小的数与第i个位置的数交换
-                temp = list.get(i);
-                list.set(i, list.get(pos));
-                list.set(pos, temp);
             }
+            // 最小的数与第i个位置的数交换
+            temp = list.get(i);
+            list.set(i, list.get(pos));
+            list.set(pos, temp);
         }
     }
 
     /**
      * 选择排序 自定义的排序对象对集合元素经行排序
      *
-     * @param list
-     * @param <E>
-     * @return
+     * @param list       待排序的集合
+     * @param comparator 比较器
      */
+    @SuppressWarnings("unused")
     public static <E> void selectSort(List<E> list, Comparator<? super E> comparator) {
-        if (list != null && !list.isEmpty()) {
-            E temp;
-            final int size = list.size();
-            for (int i = 0; i < size; i++) {
-                // 记录每一次循环最小值的位置
-                int pos = i;
-                for (int j = i + 1; j < size; j++) {
-                    if (comparator.compare(list.get(pos), list.get(j)) > 0) {
-                        pos = j;
-                    }
+        if (null == list || list.isEmpty()) {
+            return;
+        }
+        E temp;
+        final int size = list.size();
+        for (int i = 0; i < size; i++) {
+            // 记录每一次循环最小值的位置
+            int pos = i;
+            for (int j = i + 1; j < size; j++) {
+                if (comparator.compare(list.get(pos), list.get(j)) > 0) {
+                    pos = j;
                 }
-                // 最小的数与第i个位置的数交换
-                temp = list.get(i);
-                list.set(i, list.get(pos));
-                list.set(pos, temp);
             }
+            // 最小的数与第i个位置的数交换
+            temp = list.get(i);
+            list.set(i, list.get(pos));
+            list.set(pos, temp);
         }
     }
 
     /**
      * 插入排序 针对实现了Comparable的接口的实体进行排序
      *
-     * @param list
-     * @param <E>
-     * @return
+     * @param list 待排序的集合
      */
+    @SuppressWarnings("unused")
     public static <E extends Comparable<? super E>> void insertSort(List<E> list) {
-        if (list != null && !list.isEmpty()) {
-            E temp;
-            final int size = list.size();
-            for (int i = 1; i < size; i++) {
-                temp = list.get(i);
-                for (int j = 0; j < i; j++) {
-                    if (temp.compareTo(list.get(j)) < 0) {
-                        for (int k = i; k > j; k--) {
-                            list.set(k, list.get(k - 1));
-                        }
-                        list.set(j, temp);
-                        break;
+        if (null == list || list.isEmpty()) {
+            return;
+        }
+        E temp;
+        final int size = list.size();
+        for (int i = 1; i < size; i++) {
+            temp = list.get(i);
+            for (int j = 0; j < i; j++) {
+                if (temp.compareTo(list.get(j)) < 0) {
+                    for (int k = i; k > j; k--) {
+                        list.set(k, list.get(k - 1));
                     }
+                    list.set(j, temp);
+                    break;
                 }
             }
         }
@@ -145,25 +149,25 @@ public class SortUtils {
     /**
      * 插入排序
      *
-     * @param list
-     * @param comparator
-     * @param <E>
-     * @return
+     * @param list       待排序的集合
+     * @param comparator 比较器
      */
+    @SuppressWarnings("unused")
     public static <E extends Comparable<? super E>> void insertSort(List<E> list, Comparator<? super E> comparator) {
-        if (list != null && !list.isEmpty()) {
-            E temp;
-            final int size = list.size();
-            for (int i = 1; i < size; i++) {
-                temp = list.get(i);
-                for (int j = 0; j < i; j++) {
-                    if (comparator.compare(temp, list.get(j)) < 0) {
-                        for (int k = i; k > j; k--) {
-                            list.set(k, list.get(k - 1));
-                        }
-                        list.set(j, temp);
-                        break;
+        if (null == list || list.isEmpty()) {
+            return;
+        }
+        E temp;
+        final int size = list.size();
+        for (int i = 1; i < size; i++) {
+            temp = list.get(i);
+            for (int j = 0; j < i; j++) {
+                if (comparator.compare(temp, list.get(j)) < 0) {
+                    for (int k = i; k > j; k--) {
+                        list.set(k, list.get(k - 1));
                     }
+                    list.set(j, temp);
+                    break;
                 }
             }
         }
@@ -172,23 +176,20 @@ public class SortUtils {
     /**
      * 适用大数据量排序
      *
-     * @param list
-     * @param comparator
-     * @param <E>
-     * @return
+     * @param list       待排序的集合
+     * @param comparator 比较器
      */
-    public static <E> List<E> streamSort(List<E> list, Comparator<? super E> comparator) {
-        if (list != null && !list.isEmpty()) {
-            return list.stream().sorted(comparator).collect(Collectors.toList());
+    @SuppressWarnings("unused")
+    public static <E> void streamSort(List<E> list, Comparator<? super E> comparator) {
+        if (null != list && !list.isEmpty()) {
+            list.stream()
+                    .sorted(comparator)
+                    .collect(Collectors.toList());
         }
-        return new ArrayList<>();
     }
 
     public static void main(String[] args) {
 
-        /**
-         * 用来测试的内部类，隐藏对外部不可见
-         */
         class Student implements Comparable<Student> {
             private int age;
 
@@ -200,6 +201,7 @@ public class SortUtils {
                 return age;
             }
 
+            @SuppressWarnings("unused")
             public void setAge(int age) {
                 this.age = age;
             }
@@ -231,8 +233,6 @@ public class SortUtils {
                 return o1.getAge() - o2.getAge();
             }
         }
-
-        /* testing
         List<Student> students = new ArrayList<>();
         for (int i = 0; i <= 100; i++) {
             students.add(new Student(new Random().nextInt(1000000)));
@@ -246,6 +246,5 @@ public class SortUtils {
         SortUtils.selectSort(students);
         SortUtils.selectSort(students, new StudentComparator());
         students.forEach(student -> System.out.println("排序后学生年龄为：" + student.getAge() + "\n"));
-        */
     }
 }

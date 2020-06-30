@@ -9,8 +9,9 @@ import org.apache.commons.lang3.StringUtils;
  * validation utils
  *
  * @author Lynx
- * @data 2019/04/26
+ * @since 2019/04/26
  */
+@SuppressWarnings("unused")
 public class ValidationUtils {
 
     /**
@@ -40,6 +41,7 @@ public class ValidationUtils {
      *            String
      * @return boolean
      */
+    @SuppressWarnings("unused")
     public static boolean isContainsSpecialChar(String stringToValidate) {
         // 命中规则通配符字符数组
         final Pattern p = Pattern.compile(SPECIAL_CHAR_SEQUENCE);
@@ -53,8 +55,9 @@ public class ValidationUtils {
      *
      * @param stringToValidate
      *            String
-     * @return boolean
+     * @return boolean true or false
      */
+    @SuppressWarnings("unused")
     public static boolean isContainChinese(String stringToValidate) {
         if (StringUtils.isEmpty(stringToValidate)) {
             return false;
@@ -68,10 +71,10 @@ public class ValidationUtils {
      * 判断是否为数字（包括小数）
      *
      * @param str
-     * @return
-     * @author LeoSong
-     * @date 2019/07/08
+     *            str to evaluate
+     * @return true or false
      */
+    @SuppressWarnings("unused")
     public static boolean isNumeric(String str) {
         if (StringUtils.isBlank(str)) {
             return false;
