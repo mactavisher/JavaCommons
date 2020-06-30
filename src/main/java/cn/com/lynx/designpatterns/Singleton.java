@@ -1,7 +1,5 @@
 package cn.com.lynx.designpatterns;
 
-import static java.lang.System.out;
-
 /**
  * singleton test dome
  *
@@ -14,21 +12,11 @@ public class Singleton {
         Thread t3 = new TestThread();
         Thread t4 = new TestThread();
         Thread t5 = new TestThread();
-        Thread t6 = new TestThread();
-        Thread t7 = new TestThread();
-        Thread t8 = new TestThread();
-        Thread t9 = new TestThread();
-        Thread t10 = new TestThread();
         t1.start();
         t2.start();
         t3.start();
         t4.start();
         t5.start();
-        t6.start();
-        t7.start();
-        t8.start();
-        t9.start();
-        t10.start();
     }
 
     /**
@@ -37,7 +25,8 @@ public class Singleton {
     static class TestThread extends Thread {
         @Override
         public void run() {
-            out.println(Thread.currentThread().getName() + ":" + SomeDataType.getInstanceSynchronized().hashCode());
+            System.out
+                .println(Thread.currentThread().getName() + ":" + SomeDataType.getInstanceSynchronized().hashCode());
         }
     }
 }
@@ -54,7 +43,11 @@ class SomeDataType {
     private SomeDataType() {}
 
     /**
-     * 然后使用本类作为锁来锁定初始化代码 volatile 保证可见性和禁止指令重排序,并不能保证原子性即也不能保证线程安全 然后使用本类作为锁锁住初始化单例实例的代码块
+     * 然后使用本类作为锁来锁定初始化代码
+     * 
+     * volatile 保证可见性和禁止指令重排序,并不能保证原子性即也不能保证线程安全
+     * 
+     * 然后使用本类作为锁锁住初始化单例实例的代码块
      *
      * @return instance
      */
