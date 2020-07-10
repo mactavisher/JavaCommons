@@ -22,7 +22,7 @@ public class Singleton {
     /**
      * 内部测试线程
      */
-    static class TestThread extends Thread {
+    private static final class TestThread extends Thread {
         @Override
         public void run() {
             System.out
