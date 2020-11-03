@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
  * @author lynx
  * @since 2019/8/22 10:20
  */
+@SuppressWarnings("unused")
 public class SortUtils {
 
     // 隐藏构造函数，外部无法实例化
@@ -24,7 +25,6 @@ public class SortUtils {
      * @param list       待排序的集合
      * @param comparator 比较器
      */
-    @SuppressWarnings("unused")
     public static <E> void bubbleSort(List<E> list, Comparator<? super E> comparator) {
         if (null == list || list.isEmpty()) {
             return;
@@ -47,7 +47,6 @@ public class SortUtils {
      *
      * @param list 待排序的集合
      */
-    @SuppressWarnings("unused")
     public static <E extends Comparable<? super E>> void bubbleSort(List<E> list) {
         if (null == list || list.isEmpty()) {
             return;
@@ -70,7 +69,6 @@ public class SortUtils {
      *
      * @param list 待排序的集合
      */
-    @SuppressWarnings("unused")
     public static <E extends Comparable<? super E>> void selectSort(List<E> list) {
         if (null == list || list.isEmpty()) {
             return;
@@ -98,7 +96,6 @@ public class SortUtils {
      * @param list       待排序的集合
      * @param comparator 比较器
      */
-    @SuppressWarnings("unused")
     public static <E> void selectSort(List<E> list, Comparator<? super E> comparator) {
         if (null == list || list.isEmpty()) {
             return;
@@ -125,7 +122,6 @@ public class SortUtils {
      *
      * @param list 待排序的集合
      */
-    @SuppressWarnings("unused")
     public static <E extends Comparable<? super E>> void insertSort(List<E> list) {
         if (null == list || list.isEmpty()) {
             return;
@@ -152,7 +148,6 @@ public class SortUtils {
      * @param list       待排序的集合
      * @param comparator 比较器
      */
-    @SuppressWarnings("unused")
     public static <E extends Comparable<? super E>> void insertSort(List<E> list, Comparator<? super E> comparator) {
         if (null == list || list.isEmpty()) {
             return;
@@ -179,7 +174,6 @@ public class SortUtils {
      * @param list       待排序的集合
      * @param comparator 比较器
      */
-    @SuppressWarnings("unused")
     public static <E> void streamSort(List<E> list, Comparator<? super E> comparator) {
         if (null != list && !list.isEmpty()) {
             list.stream()
