@@ -1,4 +1,4 @@
-
+package cn.com.lynx.commonutils;
 
 import java.util.*;
 import java.util.function.Function;
